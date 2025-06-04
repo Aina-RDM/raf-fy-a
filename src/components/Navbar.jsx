@@ -7,23 +7,16 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavClick = (sectionId) => {
-    if (location.pathname === "/") {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    } else {
-      navigate("/", { state: { scrollTo: sectionId } });
-    }
-    setIsOpen(false); // Ferme le menu mobile après clic
+  const handleNavClick = (routePath) => {
+    navigate(routePath);
+    setIsOpen(false);
   };
 
   const menus = [
-    { label: "Accueil", link: "" },
-    { label: "À Propos", link: "about" },
-    { label: "Produits", link: "products" },
-    { label: "Contact", link: "contact" },
+    { label: "Accueil", link: "/" },
+    { label: "À Propos", link: "/apropos" },
+    { label: "Produits", link: "/produits" },
+    { label: "Contact", link: "/contact" },
   ];
 
   return (
@@ -31,7 +24,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 relative">
           {/* Logo / Marque */}
-          <div className="text-2xl font-extrabold tracking-widest text-yellow-700">
+          <div
+            className="text-2xl font-extrabold tracking-widest text-yellow-700 cursor-pointer"
+            onClick={() => handleNavClick("/")}
+          >
             RAF-<span className="text-black">Fy</span>-A
           </div>
 
@@ -41,7 +37,11 @@ const Navbar = () => {
               <span
                 key={item.link}
                 onClick={() => handleNavClick(item.link)}
-                className="cursor-pointer text-md font-semibold text-gray-700 hover:text-yellow-700 hover:underline transition"
+                className={`cursor-pointer text-md font-semibold transition ${
+                  location.pathname === item.link
+                    ? "text-yellow-700 underline"
+                    : "text-gray-700 hover:text-yellow-700 hover:underline"
+                }`}
               >
                 {item.label}
               </span>
@@ -69,7 +69,11 @@ const Navbar = () => {
               <span
                 key={item.link}
                 onClick={() => handleNavClick(item.link)}
-                className="px-4 py-2 text-gray-800 hover:text-yellow-700 text-md font-semibold transition"
+                className={`cursor-pointer text-md font-semibold transition ${
+                  location.pathname === item.link
+                    ? "text-yellow-700 underline"
+                    : "text-gray-700 hover:text-yellow-700 hover:underline"
+                }`}
               >
                 {item.label}
               </span>
