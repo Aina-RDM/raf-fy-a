@@ -9,7 +9,7 @@ const Header = () => {
       <div className="absolute w-[360px] h-[360px] bg-yellow-700 opacity-15 rounded-full -top-60 -left-24 z-10"></div>
 
       {/* Petit cercle opaque par-dessus, sans mélange */}
-      <div className="absolute w-20 h-20 rounded-full top-20 -left-11 z-30 border-4 border-white bg-white flex items-center justify-center">
+      <div className="hidden md:block absolute w-20 h-20 rounded-full top-20 -left-11 z-30 border-4 border-white bg-white items-center justify-center">
         <div className="w-full h-full rounded-full bg-yellow-700"></div>
       </div>
 

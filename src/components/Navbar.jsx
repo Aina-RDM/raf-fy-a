@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+import CommandeModal from "./CommandeModal"; // <-- chemin à adapter selon ton arborescence
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -23,11 +25,7 @@ const Navbar = () => {
     <nav className="fixed w-full bg-white bg-opacity-90 backdrop-blur-md text-black z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 relative">
-          {/* Logo / Marque */}
-          <div
-            className="text-2xl font-extrabold tracking-widest text-yellow-700 cursor-pointer"
-            onClick={() => handleNavClick("/")}
-          >
+          <div className="text-2xl font-extrabold tracking-widest text-yellow-700">
             RAF-<span className="text-black">Fy</span>-A
           </div>
 
@@ -37,17 +35,18 @@ const Navbar = () => {
               <span
                 key={item.link}
                 onClick={() => handleNavClick(item.link)}
-                className={`cursor-pointer text-md font-semibold transition ${
-                  location.pathname === item.link
-                    ? "text-yellow-700 underline"
-                    : "text-gray-700 hover:text-yellow-700 hover:underline"
-                }`}
+                className="cursor-pointer text-md font-semibold text-gray-700 hover:text-yellow-700 hover:underline transition"
               >
                 {item.label}
               </span>
             ))}
           </div>
-          <button className="hidden md:block bg-yellow-700 text-white px-5 py-2 rounded-full hover:bg-yellow-800 transition shadow-md">
+
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="hidden md:flex items-center gap-2 bg-yellow-700 text-white px-5 py-2 rounded-full hover:bg-yellow-800 transition shadow-md"
+          >
+            <ShoppingCart size={18} />
             Commander
           </button>
 
@@ -69,21 +68,26 @@ const Navbar = () => {
               <span
                 key={item.link}
                 onClick={() => handleNavClick(item.link)}
-                className={`cursor-pointer text-md font-semibold transition ${
-                  location.pathname === item.link
-                    ? "text-yellow-700 underline"
-                    : "text-gray-700 hover:text-yellow-700 hover:underline"
-                }`}
+                className="px-4 py-2 text-gray-800 hover:text-yellow-700 text-md font-semibold transition"
               >
                 {item.label}
               </span>
             ))}
-            <button className="bg-yellow-700 text-white px-6 py-2 rounded-full hover:bg-yellow-800 transition shadow-md">
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-yellow-700 text-white px-6 py-2 rounded-full hover:bg-yellow-800 transition shadow-md"
+            >
               Commander
             </button>
           </div>
         )}
       </div>
+
+      {/* Appel du composant modal */}
+      <CommandeModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </nav>
   );
 };
