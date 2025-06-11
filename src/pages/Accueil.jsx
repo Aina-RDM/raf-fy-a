@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import ConfianceClient from "../components/ConfianceClient";
 import SectionService from "../components/SectionService";
 import BestSellers from "../components/BestSellers";
+import Banner from "../components/Banner";
 
 const Accueil = () => {
   return (
@@ -11,6 +12,7 @@ const Accueil = () => {
       <ConfianceClient />
       <SectionService />
       <BestSellers />
+      <Banner />
     </div>
   );
 };
