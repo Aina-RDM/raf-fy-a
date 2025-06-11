@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { X } from "lucide-react"; // icône de suppression
+import { X, Send } from "lucide-react"; // Import des icônes
 
 const produitsDispo = [
   { id: 1, nom: "Pizza Margherita" },
@@ -38,12 +38,7 @@ const CommandeModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const details = {
-      nom,
-      email,
-      phone,
-      commande,
-    };
+    const details = { nom, email, phone, commande };
     console.log("Commande envoyée :", details);
     onClose();
   };
@@ -51,7 +46,16 @@ const CommandeModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-lg w-[95%] max-w-md shadow-lg relative flex flex-col max-h-[90vh]">
+        {/* Bouton X pour fermer la modal */}
+        <button
+          className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+          onClick={onClose}
+        >
+          <X size={20} />
+        </button>
+
         <h2 className="text-xl font-bold mb-4">Passer une commande</h2>
+
         <form
           onSubmit={handleSubmit}
           className="flex flex-col flex-grow overflow-hidden"
@@ -127,19 +131,13 @@ const CommandeModal = ({ isOpen, onClose }) => {
             </button>
           </div>
 
-          {/* Boutons fixes */}
-          <div className="flex justify-between pt-3 border-t border-gray-200">
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 text-sm"
-            >
-              Annuler
-            </button>
+          {/* Bouton Envoyer centré et large */}
+          <div className="pt-3 border-t border-gray-200">
             <button
               type="submit"
-              className="px-4 py-2 bg-yellow-700 text-white rounded hover:bg-yellow-800 text-sm"
+              className="w-full flex justify-center items-center gap-2 px-4 py-2 bg-yellow-700 text-white rounded hover:bg-yellow-800 text-sm"
             >
+              <Send size={16} />
               Envoyer
             </button>
           </div>
