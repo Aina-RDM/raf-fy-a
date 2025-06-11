@@ -6,15 +6,15 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 const SectionService = () => {
   const imageRef = useRef(null);
   const isInView = useInView(imageRef, {
-    margin: "-150px", // Déclenchement plus tôt
+    margin: "-150px", // Déclenchement
   });
 
   return (
     <div className="py-16 px-6 bg-white" id="section-service">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-6xl font-bold text-center text-gray-700 mb-12">
+        <h2 className="text-6xl font-bold text-center text-gray-700 mb-12">
           Pourquoi notre Raphia est bon pour vous ?
-        </h1>
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Image */}
