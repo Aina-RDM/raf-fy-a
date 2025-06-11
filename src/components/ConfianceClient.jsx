@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const ConfianceClient = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 shadow-md bg-yellow-700/15 min-h-[50px]">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 bg-yellow-700/15 min-h-[50px]">
       {/* Partie gauche */}
       <div className="flex items-center justify-center">
         <p className="text-left text-xl md:text-2xl font-semibold text-gray-800">
@@ -26,13 +26,13 @@ const ConfianceClient = () => {
               <FaStar />
               <FaStarHalfAlt />
             </div>
-            <p className="text-md text-gray-700">900 Avis</p>
+            <p className="text-md text-gray-700">900 Avis des clients</p>
           </div>
 
           {/* Produits vendus */}
           <div className="flex flex-col items-start justify-center">
-            <span className="text-7xl font-semibold text-gray-800">1 000</span>
-            <p className="text-md text-gray-700">produits vendus par an</p>
+            <span className="text-7xl font-semibold text-gray-800">+ 1K</span>
+            <p className="text-md text-gray-700">de produits vendus par an</p>
           </div>
         </div>
       </div>
