@@ -23,7 +23,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed w-full bg-white bg-opacity-90 backdrop-blur-md text-black z-10">
+    <nav className="fixed w-full bg-white bg-opacity-90 backdrop-blur-md text-black z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 relative">
           {/* <div className="text-2xl font-extrabold tracking-widest text-yellow-700">

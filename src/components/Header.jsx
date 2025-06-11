@@ -6,15 +6,15 @@ const Header = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col md:flex-row items-center justify-between px-8 py-12 relative overflow-hidden">
       {/* Cercle décoratif en fond */}
-      <div className="absolute w-[360px] h-[360px] bg-yellow-700 opacity-15 rounded-full -top-60 -left-24 z-10"></div>
+      <div className="absolute w-[360px] h-[360px] bg-yellow-700 opacity-15 rounded-full -top-60 -left-24 z-20"></div>
 
-      {/* Petit cercle opaque par-dessus, sans mélange */}
+      {/* Petit cercle par-dessus */}
       <div className="hidden md:block absolute w-20 h-20 rounded-full top-20 -left-11 z-30 border-4 border-white bg-white items-center justify-center">
         <div className="w-full h-full rounded-full bg-yellow-700"></div>
       </div>
 
       {/* Autre petit cercle à droite */}
-      <div className="hidden md:block absolute w-10 h-10 rounded-full top-24 right-28 z-30 border-4 border-white bg-white items-center justify-center">
+      <div className="hidden md:block absolute w-10 h-10 rounded-full top-24 right-28 z-10 border-4 border-white bg-white items-center justify-center">
         <div className="w-full h-full rounded-full bg-yellow-700"></div>
       </div>
 
