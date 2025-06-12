@@ -27,53 +27,73 @@ const Temoignages = () => {
   const containerRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Scroll automatique sauf au survol
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const scrollStep = 1;
+    const scrollInterval = 20;
+
     const interval = setInterval(() => {
-      if (!isHovered && containerRef.current) {
-        containerRef.current.scrollLeft += 1;
+      if (!isHovered) {
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft = 0;
+        } else {
+          container.scrollLeft += scrollStep;
+        }
       }
-    }, 20);
+    }, scrollInterval);
+
     return () => clearInterval(interval);
   }, [isHovered]);
 
   return (
-    <div className="relative bg-white py-10">
-      <h2 className="text-5xl md:text-6xl font-bold text-center text-gray-800 mb-12">
+    <div className="flex flex-col items-center gap-4 py-10 text-gray-900 bg-white">
+      <h1 className="text-5xl md:text-6xl font-semibold text-center text-gray-700">
         Ce que disent nos clients
-      </h2>
+      </h1>
+      <p className="sm:w-1/3 text-center text-md px-4">
+        Découvrez ce que nos clients pensent de nos produits faits main et
+        éco-responsables.
+      </p>
 
-      {/* Flou latéral */}
-      <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-white to-transparent z-10" />
-        <div className="pointer-events-none absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-white to-transparent z-10" />
-
-        {/* Liste scrollable */}
+      <div className=" py-16 w-full px-4 sm:px-1 overflow-hidden">
         <div
           ref={containerRef}
-          className="flex gap-6 overflow-x-auto px-8 pb-4 scroll-smooth no-scrollbar"
+          className={`flex gap-6 px-2  no-scrollbar ${
+            isHovered ? "" : "animate-scroll"
+          }`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {[...testimonials, ...testimonials].map((item, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-[300px] bg-yellow-700/10 border border-yellow-700/20 rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
+              className="min-w-[270px] sm:min-w-[320px] w-64 min-h-[260px] p-6 flex-shrink-0 transition-transform duration-300 hover:scale-[1.03] bg-white relative rounded-xl border border-gray-200 hover:border-[2px] hover:border-yellow-700 shadow-sm hover:shadow-lg"
             >
-              <div className="w-16 h-16 mb-4">
-                <img
-                  src={item.photo}
-                  alt={item.nom}
-                  className="w-full h-full object-cover rounded-full border-2 border-yellow-700"
-                />
+              <div className="absolute top-4 left-5 text-5xl text-gray-200 leading-none select-none">
+                “
               </div>
-              <p className="text-gray-700 italic mb-3 break-words">
-                “{item.texte}”
-              </p>
-              <div className="font-semibold text-yellow-800">{item.nom}</div>
-              <div className="text-sm items-center flex gap-1 text-gray-500">
-                <MapPin className="text-yellow-700" size={16} />
-                {item.lieu}
+
+              <div className="relative z-10 mt-6 flex flex-col justify-between h-full overflow-y-auto pr-2">
+                <p className="text-sm text-gray-700 italic text-justify leading-relaxed mb-6">
+                  {item.texte}
+                </p>
+
+                <div className="flex items-center gap-4 mt-auto">
+                  <img
+                    src={item.photo}
+                    alt={`Avatar ${item.nom}`}
+                    className="w-10 h-10 rounded-full object-cover border-2 border-yellow-700"
+                  />
+                  <div>
+                    <p className="font-semibold text-gray-800">{item.nom}</p>
+                    <div className="flex items-center text-sm text-gray-500 gap-1">
+                      <MapPin size={14} className="text-yellow-700" />
+                      {item.lieu}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ))}

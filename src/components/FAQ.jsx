@@ -36,8 +36,8 @@ const FAQ = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto py-16 px-4">
-      <h3 className="text-5xl md:text-5xl font-semibold mb-8 text-center">
+    <div className="max-w-4xl mx-auto py-10 px-4">
+      <h3 className="text-5xl md:text-6xl font-semibold mb-8 text-center text-gray-700">
         Questions fréquentes
       </h3>
       <div className="space-y-6">
