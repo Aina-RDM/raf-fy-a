@@ -11,23 +11,21 @@ const NewsLetter = () => {
       ></div>
 
       {/* Cercle en haut à gauche */}
-      <div className="hidden md:block absolute w-[360px] h-[360px] bg-yellow-700 opacity-15 rounded-full -top-60 -left-24 z-20"></div>
-
-      {/* Petit cercle par-dessus */}
-      <div className="hidden md:block absolute w-20 h-20 rounded-full top-20 -left-11 z-30 border-4 border-white bg-white items-center justify-center">
+      <div className="hidden md:block absolute w-[360px] h-[360px] bg-yellow-700 opacity-15 rounded-full -top-60 -left-24 z-10"></div>
+      <div className="hidden md:block absolute w-20 h-20 rounded-full top-20 -left-11 z-10 border-4 border-white bg-white items-center justify-center">
         <div className="w-full h-full rounded-full bg-yellow-700"></div>
       </div>
 
       {/* Cercle en bas à droite */}
-      <div className="hidden md:block absolute w-48 h-48 rounded-full bottom-[-50px] right-[-100px] z-20">
+      <div className="hidden md:block absolute w-48 h-48 rounded-full bottom-[-50px] right-[-100px] z-10">
         <div className="w-full h-full rounded-full bg-yellow-700 opacity-15"></div>
       </div>
-      <div className="hidden md:block absolute w-10 h-10 rounded-full bottom-[-10px] right-[70px] z-20 border-[3px] border-white bg-white">
+      <div className="hidden md:block absolute w-10 h-10 rounded-full bottom-[-10px] right-[70px] z-10 border-[3px] border-white bg-white">
         <div className="w-full h-full rounded-full bg-yellow-700"></div>
       </div>
 
       {/* Contenu */}
-      <div className="text-center max-w-4xl mx-auto relative z-20">
+      <div className="text-center max-w-4xl mx-auto relative z-5">
         <h2 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
           Abonnez-vous à notre newsletter
         </h2>

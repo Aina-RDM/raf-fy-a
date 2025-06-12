@@ -5,6 +5,7 @@ import SectionService from "../components/SectionService";
 import BestSellers from "../components/BestSellers";
 import Banner from "../components/Banner";
 import NewsLetter from "../components/NewsLetter";
+import Temoignages from "../components/Temoignages";
 
 const Accueil = () => {
   return (
@@ -15,6 +16,7 @@ const Accueil = () => {
       <BestSellers />
       <Banner />
       <NewsLetter />
+      <Temoignages />
     </div>
   );
 };
