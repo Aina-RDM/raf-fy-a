@@ -38,15 +38,26 @@ const Navbar = () => {
 
           {/* Menu Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            {menus.map((item) => (
-              <span
-                key={item.link}
-                onClick={() => handleNavClick(item.link)}
-                className="cursor-pointer text-md font-semibold text-gray-700 hover:text-yellow-700 hover:underline transition"
-              >
-                {item.label}
-              </span>
-            ))}
+            {menus.map((item) => {
+              const isActive = location.pathname === item.link;
+
+              return (
+                <span
+                  key={item.link}
+                  onClick={() => handleNavClick(item.link)}
+                  className={`cursor-pointer text-md font-semibold text-gray-700 hover:text-yellow-700 transition relative px-1 ${
+                    isActive ? "text-yellow-700" : ""
+                  }`}
+                >
+                  {item.label}
+
+                  {/* Ligne artisanale sous le menu actif */}
+                  {isActive && (
+                    <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-yellow-700 animate-draw" />
+                  )}
+                </span>
+              );
+            })}
           </div>
 
           <button
