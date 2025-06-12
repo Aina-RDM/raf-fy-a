@@ -6,6 +6,7 @@ import BestSellers from "../components/BestSellers";
 import Banner from "../components/Banner";
 import NewsLetter from "../components/NewsLetter";
 import Temoignages from "../components/Temoignages";
+import FAQ from "../components/FAQ";
 
 const Accueil = () => {
   return (
@@ -17,6 +18,7 @@ const Accueil = () => {
       <Banner />
       <NewsLetter />
       <Temoignages />
+      <FAQ />
     </div>
   );
 };
