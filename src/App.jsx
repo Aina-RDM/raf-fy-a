@@ -5,6 +5,7 @@ import Accueil from "./pages/Accueil";
 import Produits from "./pages/Produits";
 import Apropos from "./pages/Apropos";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/apropos" element={<Apropos />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </div>
   );
 };
