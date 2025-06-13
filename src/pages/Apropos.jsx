@@ -1,5 +1,6 @@
 import React from "react";
 import Equipe from "../components/Equipe";
+import Temoignages from "../components/Temoignages";
 import {
   FaRegHandshake,
   FaLeaf,
@@ -15,7 +16,7 @@ const ICON_SIZE = 30;
 const IconBlock = ({ Icon, children }) => (
   <div className="flex items-start gap-4">
     <Icon size={ICON_SIZE} className="text-yellow-700 mt-1 shrink-0" />
-    <p className="text-lg">{children}</p>
+    <p className="text-md">{children}</p>
   </div>
 );
 
@@ -28,12 +29,20 @@ const Apropos = () => {
 
       <div className="flex flex-col md:flex-row gap-10 items-center">
         {/* Logo à gauche */}
-        <div className="w-full md:w-1/2 flex justify-center">
-          <img
-            src={Logo_RafFyA}
-            alt="Logo Raf-Fy-A"
-            className="w-96 h-auto rounded-lg shadow-md"
-          />
+        <div className="w-full md:w-1/2 flex justify-center group perspective">
+          <div className="relative w-96 transition-transform duration-75 group-hover:-rotate-2 group-hover:scale-105">
+            {/* Ombres en couches visibles uniquement au survol */}
+            <div className="absolute inset-0 translate-x-2 translate-y-2 bg-yellow-700/10 rounded-lg blur-sm -z-10 hidden group-hover:block"></div>
+            <div className="absolute inset-0 translate-x-4 translate-y-4 bg-yellow-700/5 rounded-lg blur-md -z-20 hidden group-hover:block"></div>
+            <div className="absolute inset-0 translate-x-6 translate-y-6 bg-yellow-700/0 rounded-lg blur-lg -z-30 hidden group-hover:block"></div>
+
+            {/* Image principale */}
+            <img
+              src={Logo_RafFyA}
+              alt="Logo Raf-Fy-A"
+              className="w-full h-auto rounded-lg shadow-md transition-transform duration-300 ease-in-out group-hover:rotate-3"
+            />
+          </div>
         </div>
 
         {/* Textes à droite */}
@@ -71,6 +80,10 @@ const Apropos = () => {
       {/* Section Équipe */}
       <div className="mt-16">
         <Equipe />
+      </div>
+
+      <div className="mt-8">
+        <Temoignages />
       </div>
     </div>
   );

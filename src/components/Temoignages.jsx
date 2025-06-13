@@ -54,10 +54,10 @@ const Temoignages = () => {
       </h1>
       <p className="sm:w-1/3 text-center text-md px-4">
         Découvrez ce que nos clients pensent de nos produits faits main et
-        éco-responsables.
+        éco-responsables
       </p>
 
-      <div className=" py-16 w-full px-4 sm:px-1 overflow-hidden">
+      <div className=" py-4 w-full px-4 sm:px-1 overflow-hidden">
         <div
           ref={containerRef}
           className={`flex gap-6 px-2  no-scrollbar ${

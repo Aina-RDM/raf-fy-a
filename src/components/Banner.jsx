@@ -31,7 +31,7 @@ const Banner = () => {
             {/* Image principale */}
             <img
               src={bannerImg}
-              alt="Femme avec sac et chapeau en raphia"
+              alt="Produits en raphia"
               className="rounded-lg shadow-xl transition-transform duration-300 ease-in-out group-hover:rotate-3"
             />
           </div>
