@@ -2,9 +2,8 @@ import React from "react";
 
 const Produits = () => {
   return (
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-      repellendus.
+    <div className=" py-50 ">
+      <h1>PRODUITS</h1>
     </div>
   );
 };
