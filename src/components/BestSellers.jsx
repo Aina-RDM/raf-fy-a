@@ -5,27 +5,28 @@ import product1 from "../assets/product1.png";
 import product2 from "../assets/product2.png";
 import product3 from "../assets/product3.png";
 import CommandeModal from "./CommandeModal";
+import { useCart } from "../context/CartContext";
 
-const products = [
+const produits = [
   {
     id: 1,
     name: "Sac Raphia Élégant",
     description: "Fait main, parfait pour l’été.",
-    price: "30 000 Ar",
+    prix: 30000,
     image: product1,
   },
   {
     id: 2,
     name: "Chapeau Soleil",
     description: "Protection et style naturel.",
-    price: "25 000 Ar",
+    prix: 25000,
     image: product2,
   },
   {
     id: 3,
     name: "Sous-tasse Bohème",
     description: "Ajoute du charme à vos tables.",
-    price: "5 000 Ar",
+    prix: 5000,
     image: product3,
   },
 ];
@@ -33,13 +34,18 @@ const products = [
 const BestSellers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  const { addToCart } = useCart();
+  const handleCommander = (product) => {
+    addToCart(product);
+    setIsModalOpen(true);
+  };
   return (
     <div className="py-16 px-6 bg-white" id="best-sellers">
       <h2 className="text-6xl font-bold text-center text-gray-700 mb-12">
         Nos Meilleures Ventes
       </h2>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {products.map((product) => (
+        {produits.map((product) => (
           <div
             key={product.id}
             className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
@@ -60,10 +66,10 @@ const BestSellers = () => {
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-lg font-bold text-gray-800">
-                  {product.price}
+                  {product.prix.toLocaleString("fr-FR")} Ar
                 </span>
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={() => handleCommander(product)}
                   className="flex items-center gap-2 bg-yellow-700 text-white px-4 py-2 rounded-full hover:bg-yellow-800 transition cursor-pointer"
                 >
                   <ShoppingCart size={18} /> Commander

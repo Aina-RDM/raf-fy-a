@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Menu, X, ShoppingCart } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
-import CommandeModal from "./CommandeModal";
 import Logo_RafFyA from "../assets/Logo_RafFyA.png";
+import { useCart } from "../context/CartContext";
 
 const Navbar = ({ openModal }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { cartCount } = useCart();
 
   const handleNavClick = (routePath) => {
     navigate(routePath);
@@ -56,10 +57,15 @@ const Navbar = ({ openModal }) => {
 
           <button
             onClick={openModal}
-            className="hidden md:flex items-center gap-2 bg-yellow-700 text-white px-5 py-2 rounded-full hover:bg-yellow-800 transition shadow-md"
+            className="relative hidden md:flex items-center gap-2 bg-yellow-700 text-white px-5 py-2 rounded-full hover:bg-yellow-800 transition shadow-md"
           >
             <ShoppingCart size={18} />
-            Commander
+            Panier
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {cartCount}
+              </span>
+            )}
           </button>
 
           {/* Bouton Menu mobile */}
@@ -88,12 +94,17 @@ const Navbar = ({ openModal }) => {
             <button
               onClick={() => {
                 setIsOpen(false);
-                openModal(); // Appel de la fonction reçue en props
+                openModal();
               }}
-              className="flex bg-yellow-700 items-center gap-2 text-white px-6 py-3 rounded-full hover:bg-yellow-800 transition shadow-md"
+              className="relative flex bg-yellow-700 items-center gap-2 text-white px-6 py-3 rounded-full hover:bg-yellow-800 transition shadow-md"
             >
               <ShoppingCart size={18} />
-              Commander
+              Panier
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartCount}
+                </span>
+              )}
             </button>
           </div>
         )}

@@ -3,6 +3,7 @@ import sacImg from "../assets/product1.png";
 import chapeauImg from "../assets/product2.png";
 import decoImg from "../assets/product3.png";
 import CommandeModal from "../components/CommandeModal";
+import { useCart } from "../context/CartContext";
 
 const allProduits = [
   {
@@ -11,7 +12,7 @@ const allProduits = [
     description: "Sac fait main 100% naturel, parfait pour l'été.",
     image: sacImg,
     type: "sac",
-    prix: "35 000 Ar",
+    prix: 35000,
   },
   {
     id: 2,
@@ -19,7 +20,7 @@ const allProduits = [
     description: "Chapeau léger et élégant, idéal pour le soleil.",
     image: chapeauImg,
     type: "chapeau",
-    prix: "25 000 Ar",
+    prix: 25000,
   },
   {
     id: 3,
@@ -27,7 +28,7 @@ const allProduits = [
     description: "Sous-tasse tressé à la main pour la déco intérieure.",
     image: decoImg,
     type: "déco",
-    prix: "30 000 Ar",
+    prix: 3000,
   },
   {
     id: 4,
@@ -35,13 +36,18 @@ const allProduits = [
     description: "Grand sac robuste pour les courses et sorties.",
     image: sacImg,
     type: "sac",
-    prix: "40 000 Ar",
+    prix: 40000,
   },
 ];
 
 const Produits = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filtre, setFiltre] = useState("tous");
+  const { addToCart } = useCart();
+  const handleCommander = (produit) => {
+    addToCart(produit);
+    setIsModalOpen(true);
+  };
 
   const produitsFiltres =
     filtre === "tous"
@@ -90,20 +96,21 @@ const Produits = () => {
               <p className="text-sm text-gray-600 mb-2">
                 {produit.description}
               </p>
-              <p className="text-lg font-semibold text-yellow-800 mb-4">
-                {produit.prix}
-              </p>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-yellow-700 hover:bg-yellow-800 text-white font-medium py-2 px-4 rounded-md"
-              >
-                Commander
-              </button>
+              <div className="flex items-center justify-between">
+                <span className="text-lg font-bold text-gray-800">
+                  {produit.prix.toLocaleString("fr-FR")} Ar
+                </span>
+                <button
+                  onClick={() => handleCommander(produit)}
+                  className="flex items-center gap-2 bg-yellow-700 text-white px-4 py-2 rounded-full hover:bg-yellow-800 transition cursor-pointer"
+                >
+                  Commander
+                </button>
+              </div>
             </div>
           </div>
         ))}
       </div>
-      {/* Appel du composant modal */}
       <CommandeModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
