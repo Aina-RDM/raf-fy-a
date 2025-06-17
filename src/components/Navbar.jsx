@@ -69,12 +69,17 @@ const Navbar = ({ openModal }) => {
           </button>
 
           {/* Bouton Menu mobile */}
-          <div className="md:hidden">
+          <div className="md:hidden relative">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-yellow-800"
+              className="text-yellow-800 relative"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartCount}
+                </span>
+              )}
             </button>
           </div>
         </div>
