@@ -1,6 +1,7 @@
 import React from "react";
 import Equipe from "../components/Equipe";
 import Temoignages from "../components/Temoignages";
+import ArtisanatMalagasy from "../components/ArtisanatMalagasy";
 import {
   FaRegHandshake,
   FaLeaf,
@@ -82,6 +83,12 @@ const Apropos = () => {
         <Equipe />
       </div>
 
+      {/* Section Artisanat Malagasy */}
+      <div className="mt-24">
+        <ArtisanatMalagasy />
+      </div>
+
+      {/* Section Témoignages */}
       <div className="mt-8">
         <Temoignages />
       </div>
