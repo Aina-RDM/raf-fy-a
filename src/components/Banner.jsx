@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import bannerImg from "../assets/img_header.png"; // Remplace par ton image réelle
 import { ArrowRight } from "lucide-react";
 
 const Banner = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-white py-16 px-6 md:px-20">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
@@ -15,7 +17,13 @@ const Banner = () => {
             Découvrez nos créations en raphia faites main, parfaites pour votre
             style estival.
           </p>
-          <button className="inline-flex items-center gap-2 bg-yellow-700 text-white px-6 py-3 rounded-full text-lg hover:bg-yellow-800 transition">
+          <button
+            onClick={() => {
+              navigate("/produits");
+              scrollTo(0, 0);
+            }}
+            className="inline-flex items-center gap-2 bg-yellow-700 text-white px-6 py-3 rounded-full text-lg hover:bg-yellow-800 transition"
+          >
             Explorer la collection <ArrowRight size={20} />
           </button>
         </div>

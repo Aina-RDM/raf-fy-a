@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ShoppingCart, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import product1 from "../assets/product1.png";
 import product2 from "../assets/product2.png";
 import product3 from "../assets/product3.png";
@@ -31,7 +32,7 @@ const products = [
 
 const BestSellers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <div className="py-16 px-6 bg-white" id="best-sellers">
       <h2 className="text-6xl font-bold text-center text-gray-700 mb-12">

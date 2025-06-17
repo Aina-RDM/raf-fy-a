@@ -87,7 +87,9 @@ const Produits = () => {
               <h2 className="text-3xl font-semibold text-gray-800 mb-1">
                 {produit.nom}
               </h2>
-              <p className="text-gray-600 mb-2">{produit.description}</p>
+              <p className="text-sm text-gray-600 mb-2">
+                {produit.description}
+              </p>
               <p className="text-lg font-semibold text-yellow-800 mb-4">
                 {produit.prix}
               </p>
