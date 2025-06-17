@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Accueil from "./pages/Accueil";
@@ -6,11 +6,14 @@ import Produits from "./pages/Produits";
 import Apropos from "./pages/Apropos";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import CommandeModal from "./components/CommandeModal";
 
 const App = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div>
-      <Navbar />
+      <Navbar openModal={() => setIsModalOpen(true)} />
       <Routes>
         <Route path="/" element={<Accueil />} />
         <Route path="/produits" element={<Produits />} />
@@ -18,6 +21,10 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <CommandeModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

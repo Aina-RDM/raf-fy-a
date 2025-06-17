@@ -44,8 +44,8 @@ const CommandeModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg w-[95%] max-w-md shadow-lg relative flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-[60] overflow-y-auto">
+      <div className="bg-white p-6 rounded-lg w-[95%] max-w-md shadow-lg relative flex flex-col max-h-[90vh] my-6">
         {/* Bouton X pour fermer la modal */}
         <button
           className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
