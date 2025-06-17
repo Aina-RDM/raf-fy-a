@@ -5,7 +5,7 @@ import {
   FaMapMarkerAlt,
   FaClock,
   FaFacebook,
-  FaInstagram,
+  FaWhatsapp,
 } from "react-icons/fa";
 
 const Contact = () => {
@@ -68,12 +68,12 @@ const Contact = () => {
               <FaFacebook />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://https://wa.me/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-yellow-700 hover:text-yellow-800 text-xl"
             >
-              <FaInstagram />
+              <FaWhatsapp />
             </a>
           </div>
         </div>
