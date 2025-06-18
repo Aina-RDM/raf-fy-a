@@ -1,17 +1,30 @@
-import React, { useState } from "react";
-import { ShoppingCart } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { ShoppingCart, ArrowUp } from "lucide-react";
 import { allProduits } from "../data/produitsData";
 import CommandeModal from "../components/CommandeModal";
 import { useCart } from "../context/CartContext";
 
 const Produits = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const [filtre, setFiltre] = useState("tous");
   const { addToCart } = useCart();
   const handleCommander = (produit) => {
     addToCart(produit);
     setIsModalOpen(true);
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollButton(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const produitsFiltres =
     filtre === "tous"
@@ -80,6 +93,16 @@ const Produits = () => {
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
       />
+      {/* Bouton retour haut */}
+      {showScrollButton && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-8 right-8 bg-yellow-700 text-white p-3 rounded-lg shadow-lg hover:bg-yellow-800 transition z-50"
+          aria-label="Revenir en haut"
+        >
+          <ArrowUp size={18} />
+        </button>
+      )}
     </div>
   );
 };
