@@ -90,11 +90,8 @@ const Footer = () => {
         {/* Légal */}
         <div className="mt-8 border-t pt-6 text-center text-xs text-gray-500 space-y-2">
           <div className="flex justify-center gap-4 flex-wrap">
-            <span
-              onClick={() => navigate("/cookies")}
-              className="cursor-pointer hover:underline"
-            >
-              Cookies
+            <span className="cursor-pointer hover:underline">
+              Site web sans Cookies
             </span>
             <span
               onClick={() => navigate("/politique-de-confidentialite")}
@@ -103,9 +100,7 @@ const Footer = () => {
               Politique de confidentialité
             </span>
           </div>
-          <div>
-            © {new Date().getFullYear()} Raf-Fy-A. Tous droits réservés.
-          </div>
+          <div>© {new Date().getFullYear()} Raf-FyA. Tous droits réservés.</div>
         </div>
       </div>
     </footer>

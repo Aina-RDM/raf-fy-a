@@ -7,6 +7,7 @@ const CommandeModal = ({ isOpen, onClose }) => {
   const [nom, setNom] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
   const { cart, removeFromCart, clearCart, addToCart, updateQuantity } =
     useCart();
 
@@ -140,6 +141,14 @@ const CommandeModal = ({ isOpen, onClose }) => {
                   placeholder="Votre téléphone"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  className="w-full border px-3 py-2 rounded text-sm"
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Votre adresse"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                   className="w-full border px-3 py-2 rounded text-sm"
                   required
                 />

@@ -32,9 +32,8 @@ const Politique = () => {
 
       <h2 className="text-3xl font-semibold mt-6 mb-2">3. Cookies</h2>
       <p className="mb-4">
-        Nous utilisons des cookies pour améliorer votre navigation et réaliser
-        des statistiques anonymes. Vous pouvez les désactiver dans les
-        paramètres de votre navigateur.
+        Notre site n'utilise pas de cookies. Vous pouvez naviguer en toute
+        tranquillité sans collecte d'informations via des cookies.
       </p>
 
       <h2 className="text-3xl font-semibold mt-6 mb-2">
