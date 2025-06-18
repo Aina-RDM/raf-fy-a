@@ -25,11 +25,7 @@ const CommandeModal = ({ isOpen, onClose }) => {
   };
 
   const handleNextStep = () => {
-    if (cart.length === 0) {
-      alert("Votre panier est vide.");
-    } else {
-      setStep(2);
-    }
+    setStep(2);
   };
 
   const handleDecrease = (item) => {
@@ -152,9 +148,9 @@ const CommandeModal = ({ isOpen, onClose }) => {
           </div>
 
           {step === 1 && cart.length > 0 && (
-            <div className="text-right text-sm font-medium mb-2 text-gray-700">
+            <div className="text-right text-sm font-semibold mb-2 text-gray-700">
               Total :{" "}
-              <span className="text-yellow-800">
+              <span className="text-yellow-800 font-semibold">
                 {total.toLocaleString("fr-FR")} Ar
               </span>
             </div>

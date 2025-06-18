@@ -65,7 +65,7 @@ export const allProduits = [
     prix: 5000,
   },
   {
-    id: 7,
+    id: 8,
     nom: "Décoration murale",
     description: "Déco murale marine pour la maison.",
     image: product8,

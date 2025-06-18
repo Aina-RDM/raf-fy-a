@@ -7,6 +7,7 @@ import Apropos from "./pages/Apropos";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import CommandeModal from "./components/CommandeModal";
+import Politique from "./pages/Politique";
 
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/produits" element={<Produits />} />
         <Route path="/apropos" element={<Apropos />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/politique-de-confidentialite" element={<Politique />} />
       </Routes>
       <Footer />
       <CommandeModal
