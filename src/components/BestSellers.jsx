@@ -10,21 +10,21 @@ import { useCart } from "../context/CartContext";
 const produits = [
   {
     id: 1,
-    name: "Sac Raphia Élégant",
+    nom: "Sac Raphia Élégant",
     description: "Fait main, parfait pour l’été.",
     prix: 30000,
     image: product1,
   },
   {
     id: 2,
-    name: "Chapeau Soleil",
+    nom: "Chapeau Soleil",
     description: "Protection et style naturel.",
     prix: 25000,
     image: product2,
   },
   {
     id: 3,
-    name: "Sous-tasse Bohème",
+    nom: "Sous-tasse Bohème",
     description: "Ajoute du charme à vos tables.",
     prix: 5000,
     image: product3,

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ShoppingCart } from "lucide-react";
 import sacImg from "../assets/product1.png";
 import chapeauImg from "../assets/product2.png";
 import decoImg from "../assets/product3.png";
@@ -104,6 +105,7 @@ const Produits = () => {
                   onClick={() => handleCommander(produit)}
                   className="flex items-center gap-2 bg-yellow-700 text-white px-4 py-2 rounded-full hover:bg-yellow-800 transition cursor-pointer"
                 >
+                  <ShoppingCart size={18} />
                   Commander
                 </button>
               </div>

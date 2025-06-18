@@ -75,7 +75,7 @@ const CommandeModal = ({ isOpen, onClose }) => {
                         className="w-12 h-12 object-cover rounded"
                       />
                       <div>
-                        <p className="text-sm font-medium">{item.nom}</p>
+                        <p className="text-sm font-semibold">{item.nom}</p>
                         <p className="text-xs text-gray-600">
                           {item.prix.toLocaleString("fr-FR")} x {item.quantite}{" "}
                           ={" "}
@@ -165,7 +165,14 @@ const CommandeModal = ({ isOpen, onClose }) => {
               <button
                 type="button"
                 onClick={handleNextStep}
-                className="w-full flex justify-center items-center gap-2 px-4 py-2 bg-yellow-700 text-white rounded hover:bg-yellow-800 text-sm"
+                disabled={cart.length === 0}
+                className={`w-full flex justify-center items-center gap-2 px-4 py-2 rounded text-sm transition
+      ${
+        cart.length === 0
+          ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+          : "bg-yellow-700 text-white hover:bg-yellow-800"
+      }
+    `}
               >
                 <ArrowRight size={16} />
                 Valider la commande
